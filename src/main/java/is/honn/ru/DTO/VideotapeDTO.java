@@ -1,21 +1,23 @@
-package is.honn.ru.entities;
+package is.honn.ru.DTO;
 
 import java.util.Date;
 
-public class Videotape {
+public class VideotapeDTO {
     private int id;
     private String title;
-    private String director;
+    private String directorFirstName;
+    private String directorLastName;
     private String type;
     private Date releaseDate;
     private String EIDR;
 
-    public Videotape() {}
+    public VideotapeDTO() {}
 
-    public Videotape(String title, String director,
+    public VideotapeDTO(String title, String directorFirstName, String directorLastName,
                      String type, Date releaseDate, String EIDR) {
         this.title = title;
-        this.director = director;
+        this.directorFirstName = directorFirstName;
+        this.directorLastName = directorLastName;
         this.type = type;
         this.releaseDate = releaseDate;
         this.EIDR = EIDR;
@@ -37,12 +39,20 @@ public class Videotape {
         this.title = title;
     }
 
-    public String getDirector() {
-        return director;
+    public String getDirectorFirstName() {
+        return directorFirstName;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
+    public void setDirectorFirstName(String director) {
+        this.directorFirstName = director;
+    }
+
+    public String getDirectorLastName() {
+        return directorLastName;
+    }
+
+    public void setDirectorLastName(String directorLastName) {
+        this.directorLastName = directorLastName;
     }
 
     public String getType() {
@@ -72,7 +82,7 @@ public class Videotape {
     // TODO: finna leið fyrir date í string format
     @Override
     public String toString() {
-        return String.format("%s \t%s \t %s\t %s", this.title, this.director,
-                this.type, this.EIDR);
+        return String.format("%s \t%s \t %s\t %s\t %s", this.title, this.directorFirstName,
+                this.directorLastName, this.type, this.EIDR);
     }
 }

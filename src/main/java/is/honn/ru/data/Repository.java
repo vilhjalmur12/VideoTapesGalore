@@ -1,5 +1,7 @@
 package is.honn.ru.data;
 
+import is.honn.ru.DTO.UserDTO;
+import is.honn.ru.DTO.VideotapeDTO;
 import is.honn.ru.entities.User;
 import is.honn.ru.entities.Videotape;
 
@@ -13,8 +15,8 @@ public interface Repository {
     void fetchFromJSON();
     User getUserById(int id);
     List<User> getAllUsers();
-    Videotape getVideoTapeById();
+    Videotape getVideoTapeById(int id);
     List<Videotape> getAllVideoTapes();
-    void registerUser(User user);
-    void registerVideotape(Videotape tape);
+    void registerUser(UserDTO user);
+    void registerVideotape(VideotapeDTO tape);
 }

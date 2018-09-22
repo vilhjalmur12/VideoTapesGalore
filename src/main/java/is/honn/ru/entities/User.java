@@ -1,21 +1,19 @@
 package is.honn.ru.entities;
 
 public class User {
-    private int id;
     private String name;
     private String address;
     private String email;
-    private int phone;
+    private String phone;
 
     public User() {}
 
-    public User(String name, String address, String email, int phone) {
+    public User(String name, String address, String email, String phone) {
         this.name = name;
         this.address = address;
         this.email = email;
         this.phone = phone;
     }
-
 
 
     public String getName() {
@@ -42,16 +40,16 @@ public class User {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
     @Override
     public String toString() {
-        return String.format("%s \t%s \t%s \t%d ", this.name, this.address, this.email, this.phone);
+        return String.format("%s \t%s \t%s \t%s ", this.name, this.address, this.email, this.phone);
     }
 }
