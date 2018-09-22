@@ -1,21 +1,21 @@
-import is.honn.ru.DTO.UserDTO;
-import is.honn.ru.data.JsonReaderService;
-import is.honn.ru.data.ReaderService;
-import is.honn.ru.data.Repository;
-import is.honn.ru.data.RepositoryImpl;
-import is.honn.ru.entities.User;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import is.honn.ru.DTO.UserVideoRelationDTO;
+import is.honn.ru.data.RelationRepository;
+import is.honn.ru.data.RelationRepositoryImpl;
+import is.honn.ru.data.UserRepository;
+import is.honn.ru.data.UserRepositoryImpl;
 
-import java.util.Iterator;
+import java.util.HashSet;
+import java.util.List;
 
 public class main {
     public static void main(String[] args) {
 
-        Repository repo = new RepositoryImpl();
-        repo.fetchFromJSON();
+        RelationRepository relRepo = new RelationRepositoryImpl();
 
+        List<UserVideoRelationDTO> userRel = relRepo.getAllRelationsByUserId(2);
 
-
+        for (UserVideoRelationDTO iter : userRel) {
+            System.out.println(iter);
+        }
     }
 }
