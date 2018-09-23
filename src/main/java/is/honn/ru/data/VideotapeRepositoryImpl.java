@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class VideotapeRepositoryImpl {
+public class VideotapeRepositoryImpl implements VideotapeRepository {
     private JSONArray videotapeList;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -46,7 +46,6 @@ public class VideotapeRepositoryImpl {
                 } catch (ParseException pex) {
                     System.out.println("Illegal date parse in: " + this.getClass().toString());
                 }
-
             }
         }
 
