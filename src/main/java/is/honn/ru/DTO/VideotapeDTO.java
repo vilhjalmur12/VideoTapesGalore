@@ -1,5 +1,6 @@
 package is.honn.ru.DTO;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class VideotapeDTO {
@@ -13,8 +14,21 @@ public class VideotapeDTO {
 
     public VideotapeDTO() {}
 
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
     public VideotapeDTO(String title, String directorFirstName, String directorLastName,
                      String type, Date releaseDate, String EIDR) {
+        this.title = title;
+        this.directorFirstName = directorFirstName;
+        this.directorLastName = directorLastName;
+        this.type = type;
+        this.releaseDate = releaseDate;
+        this.EIDR = EIDR;
+    }
+
+    public VideotapeDTO(int id, String title, String directorFirstName, String directorLastName,
+                        String type, Date releaseDate, String EIDR) {
+        this.id = id;
         this.title = title;
         this.directorFirstName = directorFirstName;
         this.directorLastName = directorLastName;
@@ -82,7 +96,7 @@ public class VideotapeDTO {
     // TODO: finna leið fyrir date í string format
     @Override
     public String toString() {
-        return String.format("%s \t%s \t %s\t %s\t %s", this.title, this.directorFirstName,
-                this.directorLastName, this.type, this.EIDR);
+        return String.format("%s\t%s\t%s\t%s\t%s", this.title, this.directorFirstName + " " +
+                this.directorLastName, this.type, dateFormat.format(this.releaseDate) , this.EIDR);
     }
 }

@@ -51,10 +51,11 @@ public class UserRepositoryImpl implements UserRepository {
 
         Iterator<JSONObject> iter = this.friendList.iterator();
         while(iter.hasNext()) {
-
+            JSONObject tmp = iter.next();
+            userList.add(getUserById(Integer.parseInt(tmp.get("id").toString())));
         }
 
-        return new ArrayList<User>();
+        return userList;
     }
 
 

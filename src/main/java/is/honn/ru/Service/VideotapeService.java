@@ -5,6 +5,8 @@ import is.honn.ru.data.VideotapeRepository;
 import is.honn.ru.data.VideotapeRepositoryImpl;
 import is.honn.ru.entities.Videotape;
 
+import java.util.List;
+
 public class VideotapeService {
     private VideotapeRepository _tapeRepo;
 
@@ -19,4 +21,6 @@ public class VideotapeService {
     public void registerVideotape(VideotapeDTO tape) {
         _tapeRepo.registerVideotape(tape);
     }
+
+    public List<Videotape> getAllTapes() { return _tapeRepo.getAllVideoTapes(); }
 }

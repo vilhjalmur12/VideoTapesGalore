@@ -62,7 +62,7 @@ public class UserDTO {
 
     @Override
     public String toString() {
-        return String.format("%s \t%s \t%s \t%s \t%s", this.firstName, this.lastName,
+        return String.format("%s\t%s\t%s\t%s", this.firstName + " " + this.lastName,
                 this.address, this.email, this.phone);
     }
 }

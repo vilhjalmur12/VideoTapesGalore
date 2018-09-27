@@ -5,6 +5,9 @@ import is.honn.ru.data.UserRepository;
 import is.honn.ru.data.UserRepositoryImpl;
 import is.honn.ru.entities.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserService {
     private UserRepository _userRepo;
 
@@ -19,4 +22,8 @@ public class UserService {
     public void registerUser(UserDTO user) {
         _userRepo.registerUser(user);
     }
+
+    public List<User> getAllUsers() {
+        return _userRepo.getAllUsers();
+    };
 }

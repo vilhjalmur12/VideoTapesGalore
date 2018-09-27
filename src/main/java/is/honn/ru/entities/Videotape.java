@@ -72,7 +72,7 @@ public class Videotape {
     // TODO: finna leið fyrir date í string format
     @Override
     public String toString() {
-        return String.format("%s \t%s \t %s\t %s", this.title, this.director,
+        return String.format("%s\t\t%s\t\t%s\t\t%s", this.title, this.director,
                 this.type, this.EIDR);
     }
 }

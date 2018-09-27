@@ -49,6 +49,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%s \t%s \t%s \t%s ", this.name, this.address, this.email, this.phone);
+        return String.format("%s\t%s\t%s\t%s ", this.name, this.address, this.email, this.phone);
     }
 }

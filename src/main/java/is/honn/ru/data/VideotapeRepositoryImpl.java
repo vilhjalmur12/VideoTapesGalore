@@ -50,31 +50,38 @@ public class VideotapeRepositoryImpl implements VideotapeRepository {
         }
 
 
-        return new Videotape();
+        return tape;
     }
 
     public void registerVideotape(VideotapeDTO tape) {
         JSONObject tmpObj = (JSONObject) videotapeList.get(videotapeList.size() - 1);
         int id = Integer.parseInt(tmpObj.get("id").toString() + 1);
 
-        try {
-            Date date = dateFormat.parse(tape.getReleaseDate().toString());
-            JSONObject newTape = new JSONObject();
-            newTape.put("id", id);
-            newTape.put("title", tape.getTitle());
-            newTape.put("director_first_name", tape.getDirectorFirstName());
-            newTape.put("director_last_name", tape.getDirectorLastName());
-            newTape.put("type", tape.getType());
-            newTape.put("release_date", tape.getReleaseDate().toString());
-            newTape.put("eidr", tape.getEIDR());
 
-            this.videotapeList.add(newTape);
-        } catch (ParseException pex) {
-            System.out.println("Illegal date parse in: " + this.getClass().toString());
-        }
+        JSONObject newTape = new JSONObject();
+        newTape.put("id", id);
+        newTape.put("title", tape.getTitle());
+        newTape.put("director_first_name", tape.getDirectorFirstName());
+        newTape.put("director_last_name", tape.getDirectorLastName());
+        newTape.put("type", tape.getType());
+        newTape.put("release_date", dateFormat.format(tape.getReleaseDate()));
+        newTape.put("eidr", tape.getEIDR());
+
+        this.videotapeList.add(newTape);
+
     }
 
     public List<Videotape> getAllVideoTapes() {
-        return new ArrayList<Videotape>();
+        List<Videotape> retVal = new ArrayList<Videotape>();
+
+        Iterator<JSONObject> iter = this.videotapeList.iterator();
+
+        while(iter.hasNext()) {
+            JSONObject tmp = iter.next();
+            retVal.add(getVideoTapeById(Integer.parseInt(tmp.get("id").toString())));
+        }
+        return retVal;
     }
+
+
 }
